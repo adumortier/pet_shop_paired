@@ -6,6 +6,7 @@ class SheltersController < ApplicationController
 
   def show
     shelter
+    @reviews = @shelter.reviews
   end
 
   def new
