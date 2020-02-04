@@ -18,6 +18,15 @@
   </head>
 
   <body>
+
+      <% flash.each do |type, msg| %>
+          <% if type == 'sad' %>
+              <%= msg %>
+            <% elsif type == 'happy' %>
+              <%= msg %>
+          <% end %>
+      <% end %>
+      
     <%= yield %>
   </body>
 </html>
