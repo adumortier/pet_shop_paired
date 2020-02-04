@@ -8,11 +8,13 @@
   <%= link_to "Update #{@shelter.name}", "/shelters/#{@shelter.id}/edit" %> /
   <%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %>
 
+  <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new" %>
+
 
   <% @reviews.each do |review| %>
-    <%= review.title %>
-    <%= review.rating %>
-    <%= review.content %>
+    <p>Title: <%= review.title %></p>
+    <p>Rating: <%= review.rating %></p>
+    <p>Content: <%= review.content %></p>
     <% if review.image != "https://i.pinimg.com/originals/d1/21/f6/d121f64f59f7599486e3762fcd2f1475.jpg" %>
       <%= image_tag(review.image, options = {}) %>
       <% end %>
