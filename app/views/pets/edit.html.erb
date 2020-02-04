@@ -1,4 +1,4 @@
-<%= form_tag "/shelters/#{@shelter.id}/pets/#{@pet.id}", method: :patch do %>
+<%= form_tag "/shelters/#{@pet.shelter.id}/pets/#{@pet.id}", method: :patch do %>
   <%= label_tag :image %>
   <%= text_field_tag :image, @pet.image %>
   <%= label_tag :name %>
