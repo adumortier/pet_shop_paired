@@ -11,6 +11,7 @@
         <a <%= link_to "All Pets", "/pets" %></a>
         <a <%= link_to "All Shelters", "/shelters" %></a>
       </div>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -26,7 +27,7 @@
               <%= msg %>
           <% end %>
       <% end %>
-      
+
     <%= yield %>
   </body>
 </html>

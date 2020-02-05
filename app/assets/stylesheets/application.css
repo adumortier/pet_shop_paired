@@ -13,11 +13,22 @@
  *= require_tree .
  *= require_self
  */
- img {
+ /* img {
    width: 100%;
    height: auto;
    vertical-align: middle;
- }
+ } */
+
+ body {
+width: 80%;
+padding-left: 20%;
+padding-right: 20%;
+}
+
+ img {
+  border-radius: 8px;
+  width: 50%;
+}
 
  .pics_in_a_row {
    display: flex;
