@@ -8,5 +8,6 @@
   <h2>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %></h2>
   <%= link_to "Edit #{pet.name}", "/shelters/#{pet.shelter.id}/pets/#{pet.id}/edit" %> /
   <%= link_to "Delete #{pet.name}", "/shelters/#{pet.shelter.id}/pets/#{pet.id}", method: :delete %>
+  <%= link_to "Add to Favorites", "/favorite/#{pet.id}", method: :patch %>
 </section>
 <% end %>

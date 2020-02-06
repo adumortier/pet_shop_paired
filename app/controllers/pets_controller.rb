@@ -2,6 +2,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    # @favorite = Favorite.new(session[:fav_pets])
   end
 
   def show

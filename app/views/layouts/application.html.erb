@@ -6,11 +6,6 @@
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
-      <div class="navbar">
-        <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> -->
-        <a <%= link_to "All Pets", "/pets" %></a>
-        <a <%= link_to "All Shelters", "/shelters" %></a>
-      </div>
 
     <%= csrf_meta_tags %>
 
@@ -20,13 +15,18 @@
 
   <body>
 
-      <% flash.each do |type, msg| %>
-          <% if type == 'sad' %>
-              <%= msg %>
-            <% elsif type == 'happy' %>
-              <%= msg %>
-          <% end %>
-      <% end %>
+    <div class="navbar" id=nav>
+      <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> -->
+      <a <%= link_to "All Pets", "/pets" %></a>
+      <a <%= link_to "All Shelters", "/shelters" %></a>
+      <p>Favorites: <%= favorites.favorite_count %></p>
+    </div>
+
+    <% flash.each do |type, message| %>
+        <section class=<%= type %>>
+          <p><%= message %></p>
+        </section>
+    <% end %>
 
     <%= yield %>
   </body>

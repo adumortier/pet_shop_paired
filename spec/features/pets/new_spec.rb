@@ -16,7 +16,6 @@ RSpec.describe "As a visitor" do
       age: 2,
       sex: "F",
       )
-
     @shelter.pets << @penny
 
     visit "/shelters/#{@shelter.id}/pets"
