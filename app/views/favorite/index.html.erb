@@ -1,0 +1,9 @@
+<h1>All favorites:</h1>
+
+<% favorites.pets.each do |pet_id, pet_info| %>
+<% require "pry"; binding.pry %>
+  <div>
+    <%= image_tag(pet_info["image"]) %>
+    <%= link_to pet_info["name"], "/pets/#{pet_id}"  %>
+  </div>
+<% end %>

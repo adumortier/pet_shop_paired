@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
@@ -5,46 +7,71 @@ RSpec.describe 'As a visitor' do
     Shelter.destroy_all
     Pet.destroy_all
 
-      @shelter_1 = Shelter.create!(name: "Abby's Shelter", address: "123 Maine Street", city: "Denver", state: "CO", zip: "80210")
-      @pet_1 = @shelter_1.pets.create!(
-        image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
-        name: "Penny",
-        age: 2,
-        sex: "F",
-        description: "Nice dog"
-        )
-      @pet_2 = @shelter_1.pets.create!(
-        image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
-        name: "Paulie",
-        age: 3,
-        sex: "F",
-        description: "Good dog"
-        )
+    @shelter_1 = Shelter.create!(name: "Abby's Shelter", address: '123 Maine Street', city: 'Denver', state: 'CO', zip: '80210')
+    @pet_1 = @shelter_1.pets.create!(
+      image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
+      name: 'Penny',
+      age: 2,
+      sex: 'F',
+      description: 'Nice dog'
+    )
+    @pet_2 = @shelter_1.pets.create!(
+      image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
+      name: 'Paulie',
+      age: 3,
+      sex: 'F',
+      description: 'Good dog'
+    )
 
-    visit "/pets"
+    visit "/pets/#{@pet_1.id}"
   end
 
-    xit "displays a flash message when adding favorite" do
-
+  it 'displays a flash message when adding favorite' do
     within("#pets-#{@pet_1.id}") do
-      click_link "Add to Favorites"
+      click_link 'Add to Favorites'
     end
 
     expect(page).to have_content("You added #{@pet_1.name} to your favorites.")
   end
 
-    it "can add multiple favorites" do
-
-      within("#pets-#{@pet_1.id}") do
-      click_link "Add to Favorites"
+  it 'can display the number of favorites added' do
+    within("#pets-#{@pet_1.id}") do
+      click_link 'Add to Favorites'
+    end
+    visit "/pets/#{@pet_2.id}"
+    within("#pets-#{@pet_2.id}") do
+      click_link 'Add to Favorites'
     end
 
-      within("#pets-#{@pet_2.id}") do
-      click_link "Add to Favorites"
+    within('#nav') do
+      expect(page).to have_content('2') # making integer in case we replace the Favorites with icon in the future
+    end
+  end
+
+  it 'redirects to the favorite page' do
+    within('#nav') do
+      click_link 'Favorites'
     end
 
-      within("#nav") do
-      expect(page).to have_content("2") #making integer in case we replace the Favorites with icon in the future
+    expect(current_path).to eq '/favorite'
+  end
+
+  it 'the favorite index shows the pets added as Favorites' do
+    within("#pets-#{@pet_1.id}") do
+      click_link 'Add to Favorites'
     end
+    visit "/pets/#{@pet_2.id}"
+
+    within("#pets-#{@pet_2.id}") do
+      click_link 'Add to Favorites'
+    end
+
+    within('#nav') do
+      click_link 'Favorites'
+    end
+
+    expect(current_path).to eq '/favorite'
+    expect(page).to have_content('Penny')
+    expect(page).to have_content('Paulie')
   end
 end

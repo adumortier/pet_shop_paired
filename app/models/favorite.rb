@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 class Favorite
   attr_reader :pets
 
   def initialize(pets = {})
     @pets = pets
-    # require "pry"; binding.pry
+  end
+
+  def add_favorite(info)
+    pet_id = info[:id]
+    pet_info = info[:info]
+    @pets[pet_id] ||= pet_info
   end
 
   def favorite_count
-    # require "pry"; binding.pry
-    session[:fav_pets].count
-    # @pets.count do |pet_id, status|
-    #   status == true
-    # end
+    @pets.count
   end
-
-
 end

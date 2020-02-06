@@ -19,7 +19,7 @@
       <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> -->
       <a <%= link_to "All Pets", "/pets" %></a>
       <a <%= link_to "All Shelters", "/shelters" %></a>
-      <p>Favorites: <%= favorites.favorite_count %></p>
+      <a <%= link_to "Favorites", "/favorite" %></a> <%= favorites.favorite_count %>
     </div>
 
     <% flash.each do |type, message| %>
