@@ -34,7 +34,7 @@ RSpec.describe "As a visitor" do
     visit "/favorites"
   end
 
-  it "has a link to remove all the favorited pets at once" do
+  xit "has a link to remove all the favorited pets at once" do
 
     within("#nav") do
       expect(page).to have_content("2")
