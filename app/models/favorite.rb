@@ -3,16 +3,18 @@ class Favorite
 
   def initialize(pets = {})
     @pets = pets
-    # require "pry"; binding.pry
+  end
+
+  def add_pet(id)
+    @pets[id] = 0
   end
 
   def favorite_count
-    # require "pry"; binding.pry
-    session[:fav_pets].count
-    # @pets.count do |pet_id, status|
-    #   status == true
-    # end
+    @pets.count
   end
 
+  def selected_pets 
+    Pet.find(@pets.keys)
+  end
 
 end
