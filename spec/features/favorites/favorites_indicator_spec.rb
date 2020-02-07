@@ -21,30 +21,55 @@ RSpec.describe 'As a visitor' do
         description: "Good dog"
         )
 
-    visit "/pets"
-  end
-
-    xit "displays a flash message when adding favorite" do
-
-    within("#pets-#{@pet_1.id}") do
-      click_link "Add to Favorites"
-    end
-
+      end
+      
+  it "displays a flash message when adding favorite" do
+        
+    visit "/pets/#{@pet_1.id}"
+    click_link "Add to Favorites"
     expect(page).to have_content("You added #{@pet_1.name} to your favorites.")
   end
 
-    it "can add multiple favorites" do
+  it "can add multiple favorites" do
 
-      within("#pets-#{@pet_1.id}") do
-      click_link "Add to Favorites"
-    end
-
-      within("#pets-#{@pet_2.id}") do
-      click_link "Add to Favorites"
-    end
-
-      within("#nav") do
+    visit "/pets/#{@pet_1.id}"
+    click_link "Add to Favorites"
+    
+    visit "/pets/#{@pet_2.id}"
+    click_link "Add to Favorites"
+    within("#nav") do
       expect(page).to have_content("2") #making integer in case we replace the Favorites with icon in the future
     end
+
   end
+
+  it 'redirects to the favorite page' do
+    visit "/pets"
+    within('#nav') do
+      click_link 'Favorites'
+    end
+
+    expect(current_path).to eq '/favorite'
+  end
+
+  it 'the favorite index shows the pets added as Favorites' do
+
+    visit "/pets/#{@pet_1.id}"
+    click_link 'Add to Favorites'
+
+    visit "/pets/#{@pet_2.id}"
+    click_link 'Add to Favorites'
+
+    within('#nav') do
+      click_link 'Favorites'
+    end
+    save_and_open_page
+
+    expect(current_path).to eq '/favorite'
+    expect(page).to have_content('Penny')
+    expect(page).to have_content('Paulie')
+  end
+
+  
+
 end
