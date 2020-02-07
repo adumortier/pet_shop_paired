@@ -13,8 +13,12 @@ class Favorite
     @pets.count
   end
 
-  def selected_pets 
+  def selected_pets
     Pet.find(@pets.keys)
+  end
+
+  def remove_pet_id(pet_id)
+    @pets.delete(pet_id)
   end
 
 end
