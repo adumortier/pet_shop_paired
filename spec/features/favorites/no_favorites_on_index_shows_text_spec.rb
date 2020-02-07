@@ -24,7 +24,7 @@ RSpec.describe "As a visitor" do
     visit "/favorites"
   end
 
-    it "has text when there are no favorited pets" do
+    xit "has text when there are no favorited pets" do
 
       within("#nav") do
       expect(page).to have_content("0")

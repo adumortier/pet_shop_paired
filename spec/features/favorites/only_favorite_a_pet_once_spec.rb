@@ -21,18 +21,21 @@ RSpec.describe "As a visitor" do
         description: "Good dog"
         )
 
-    visit "/pets"
   end
 
   it "favorites a pet" do
 
-      within("#pets-#{@pet_1.id}") do
-        click_link "Add to Favorites"
-      end
+    visit "/pets/#{@pet_1.id}"
 
-      within("#pets-#{@pet_2.id}") do
-        click_link "Add to Favorites"
-      end
+    click_link "Add to Favorites"
+
+      within("#nav") do
+      expect(page).to have_content("1")
+    end
+
+      visit "/pets/#{@pet_2.id}"
+
+      click_link "Add to Favorites"
 
       within("#nav") do
       expect(page).to have_content("2")
@@ -41,9 +44,9 @@ RSpec.describe "As a visitor" do
     visit "/pets/#{@pet_1.id}"
 
     expect(page).to_not have_link("Add to Favorites")
-    expect(page).to have_link("Remove #{@pet_1.name} from Favorites")
+    expect(page).to have_link("Remove from Favorites")
 
-    click_link "Remove #{@pet_1.name} from Favorites"
+    click_link "Remove from Favorites"
 
     expect(current_path).to eq("/pets/#{@pet_1.id}")
     expect(page).to have_content("#{@pet_1.name} Removed from Favorites")
@@ -54,14 +57,6 @@ RSpec.describe "As a visitor" do
     end
   end
 end
-
-
-# <% if @favorites.include?(@pet.id.to_s) %>
-#   <%= button_to 'Remove Favorite', "/favorites/#{@pet.id}", method: :delete %>
-# <% else %>
-#   <%= button_to 'Favorite', "/favorites/#{@pet.id}", method: :patch %>
-# <% end %>
-
 
 # User Story 12, Can't Favorite a Pet More Than Once
 

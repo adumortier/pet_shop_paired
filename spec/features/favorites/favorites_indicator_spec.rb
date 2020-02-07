@@ -22,9 +22,9 @@ RSpec.describe 'As a visitor' do
         )
 
       end
-      
+
   it "displays a flash message when adding favorite" do
-        
+
     visit "/pets/#{@pet_1.id}"
     click_link "Add to Favorites"
     expect(page).to have_content("You added #{@pet_1.name} to your favorites.")
@@ -34,7 +34,7 @@ RSpec.describe 'As a visitor' do
 
     visit "/pets/#{@pet_1.id}"
     click_link "Add to Favorites"
-    
+
     visit "/pets/#{@pet_2.id}"
     click_link "Add to Favorites"
     within("#nav") do
@@ -49,7 +49,7 @@ RSpec.describe 'As a visitor' do
       click_link 'Favorites'
     end
 
-    expect(current_path).to eq '/favorite'
+    expect(current_path).to eq '/favorites'
   end
 
   it 'the favorite index shows the pets added as Favorites' do
@@ -63,13 +63,9 @@ RSpec.describe 'As a visitor' do
     within('#nav') do
       click_link 'Favorites'
     end
-    save_and_open_page
 
-    expect(current_path).to eq '/favorite'
+    expect(current_path).to eq('/favorites')
     expect(page).to have_content('Penny')
     expect(page).to have_content('Paulie')
   end
-
-  
-
 end
