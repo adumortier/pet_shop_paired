@@ -1,0 +1,8 @@
+<h1>All favorites:</h1>
+
+<% favorites.selected_pets.each do |pet| %>
+  <div>
+    <%= image_tag(pet.image) %>
+    <%= link_to pet.name, "/pets/#{pet.id}"  %>
+  </div>
+  <% end %>
