@@ -22,6 +22,6 @@ class Favorite
   end
 
   def remove_all
-    @pets = {}
+    @pets.clear
   end
 end
