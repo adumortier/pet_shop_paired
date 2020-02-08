@@ -14,7 +14,7 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
         description: "Nice dog"
         )
       @pet_2 = @shelter_1.pets.create!(
-        image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
+        image: 'https://petsfeed.co/wp-content/uploads/2019/04/German-Shepherd-dog.jpg',
         name: "Paulie",
         age: 3,
         sex: "F",
@@ -35,21 +35,36 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
     click_link "Adopt your favorite pets!"
     expect(current_path).to eq('/applications/new')
 
+    owner_info = {  :name => 'Alex', 
+                    :address => '123 Maine Ave', 
+                    :city => 'Paris', 
+                    :state => 'CO', 
+                    :zip => '80210', 
+                    :phone_number => '2077020720', 
+                    :description => 'I will be a good pet owner, trust me.'}
     #check_box_tag where you select pet(s), select one pet for now (@pet_1) to make sure the other is left on /favorites
-    fill_in 'Name', with: 'Alex'
-    fill_in 'Address', with: '123 Maine Ave'
-    fill_in 'City', with: 'Paris'
-    fill_in 'State', with: 'CO'
-    fill_in 'Zip', with: '80210'
-    fill_in 'Phone number', with: '2077020720'
-    fill_in 'Description', with: 'I will be a good pet owner, trust me.'
+    within("span#pet_#{@pet_1.id}") do
+      check "pet_ids_"
+    end
+
+    # within("span#pet_#{@pet_2.id}") do
+    #   check "pet_ids_"
+    # end
+
+    fill_in 'Name', with: owner_info[:name]
+    fill_in 'Address', with: owner_info[:address]
+    fill_in 'City', with: owner_info[:city]
+    fill_in 'State', with: owner_info[:state]
+    fill_in 'Zip', with: owner_info[:zip]
+    fill_in 'Phone number', with: owner_info[:phone_number]
+    fill_in 'Description', with: owner_info[:description]
 
     click_button 'Submit Application'
 
     expect(page).to have_content('Your Application has been submitted successfully!') #flash message
     expect(current_path).to eq('/favorites')
-    expect(page).to have_content("#{@pet_2.image}")
-    expect(page).to_not have_content("#{@pet_1.image}")
+    expect(page).to have_css("img[src*='#{@pet_2.image}']")
+    expect(page).to_not have_css("img[src*='#{@pet_1.image}']")
   end
 end
 
