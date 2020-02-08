@@ -1,11 +1,15 @@
 <h1>All favorites:</h1>
 
-<% favorites.selected_pets.each do |pet| %>
-<section id= "pets-<%= pet.id %>">
-  <div>
-    <%= image_tag(pet.image) %>
-    <%= link_to pet.name, "/pets/#{pet.id}"  %>
-    <%= link_to 'Remove from Favorites', "/favorites/#{pet.id}", method: :delete %>
-  </div>
-</section>
+<% if favorites.pets.length > 0 %>
+  <% favorites.selected_pets.each do |pet| %>
+    <section id= "pets-<%= pet.id %>">
+      <div>
+        <%= image_tag(pet.image) %>
+        <%= link_to pet.name, "/pets/#{pet.id}"  %>
+        <%= link_to 'Remove from Favorites', "/favorites/#{pet.id}", method: :delete %>
+      </div>
+    </section>
+  <% end %>
+<% else %>
+  <p>You have no favorited pets at this time.</p>
 <% end %>
