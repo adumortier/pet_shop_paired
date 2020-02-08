@@ -22,7 +22,7 @@ RSpec.describe '#favorite_count' do
   #   expect(favorites.pets).to eq(expected)
   # end
 
-it "use instance methods " do
+  it "use instance methods " do
     pet_ids = {"5" => 0, "6" => 0}
     @favorite = Favorite.new(pet_ids)
 
@@ -38,4 +38,13 @@ it "use instance methods " do
     @favorite.remove_all
     expect(@favorite.pets).to eq({})
   end
+
+  it 'can update the list of favorite pets after application is submitted' do 
+    pet_ids = {"5" => 0, "6" => 0, "7" => 0}
+    @favorite = Favorite.new(pet_ids)
+    ids = ["5", "6"]
+    @favorite.update_favorites(ids)
+    expect(@favorite.pets).to eq({"7" => 0})
+  end
+  
 end

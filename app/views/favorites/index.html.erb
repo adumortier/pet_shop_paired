@@ -1,16 +1,24 @@
 <h1>All favorites:</h1>
 
 <% if favorites.pets.length > 0 %>
-<%= link_to 'Remove all Favorited Pets', "/favorites", method: :delete %>
+
+  <%= link_to 'Remove all Favorited Pets', "/favorites", method: :delete %> <br>
+  <hr>
+
+  <%= link_to 'Adopt your favorite pets!', "/applications/new" %> <br>
+<hr>
+
+
   <% favorites.selected_pets.each do |pet| %>
     <section id= "pets-<%= pet.id %>">
       <div>
         <%= image_tag(pet.image) %>
-        <%= link_to pet.name, "/pets/#{pet.id}"  %>
+        <%= link_to pet.name, "/pets/#{pet.id}"  %> / 
         <%= link_to 'Remove from Favorites', "/favorites/#{pet.id}", method: :delete %>
       </div>
     </section>
   <% end %>
+
 <% else %>
   <p>You have no favorited pets at this time.</p>
 <% end %>
