@@ -14,6 +14,7 @@ class FavoritesController < ApplicationController
     pet = Pet.find(params[:pet_id])
     favorites.remove_pet_id(params[:pet_id])
     flash[:notice] = "#{pet.name} Removed from Favorites"
-    redirect_to "/pets/#{params[:pet_id]}"
+    # redirect_to "/pets/#{params[:pet_id]}"
+    redirect_back fallback_location: '/pets'
   end
 end
