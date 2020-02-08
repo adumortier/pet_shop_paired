@@ -1,6 +1,7 @@
 <h1>All favorites:</h1>
 
 <% if favorites.pets.length > 0 %>
+<%= link_to 'Remove all Favorited Pets', "/favorites", method: :delete %>
   <% favorites.selected_pets.each do |pet| %>
     <section id= "pets-<%= pet.id %>">
       <div>
