@@ -32,31 +32,29 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
     click_link "Adopt your favorite pets!"
     expect(current_path).to eq('/applications/new')
   
-    owner_info = {  :name => 'Alex', 
+    @owner_info = {  :name => 'Alex', 
                     :address => '123 Maine Ave', 
                     :city => 'Paris', 
                     :state => 'CO', 
                     :zip => '80210', 
                     :phone_number => '2077020720', 
                     :description => 'I will be a good pet owner, trust me.'}
-    #check_box_tag where you select pet(s), select one pet for now (@pet_1) to make sure the other is left on /favorites
+    # check_box_tag where you select pet(s), select one pet for now (@pet_1) to make sure the other is left on /favorites
     within("span#pet_#{@pet_1.id}") do
       check "pet_ids_"
     end
-  
-  
-    
+
   end
   
   it 'you can apply for a pet that will then remove that pet from the favorites page' do
     
-    fill_in 'Name', with: owner_info[:name]
-    fill_in 'Address', with: owner_info[:address]
-    fill_in 'City', with: owner_info[:city]
-    fill_in 'State', with: owner_info[:state]
-    fill_in 'Zip', with: owner_info[:zip]
-    fill_in 'Phone number', with: owner_info[:phone_number]
-    fill_in 'Description', with: owner_info[:description]
+    fill_in 'Name', with: @owner_info[:name]
+    fill_in 'Address', with: @owner_info[:address]
+    fill_in 'City', with: @owner_info[:city]
+    fill_in 'State', with: @owner_info[:state]
+    fill_in 'Zip', with: @owner_info[:zip]
+    fill_in 'Phone number', with: @owner_info[:phone_number]
+    fill_in 'Description', with: @owner_info[:description]
   
     click_button 'Submit Application'
 
@@ -68,17 +66,17 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
 
   it "redirects the user to the application form when fields are missing" do 
     fill_in 'Name', with: ""
-    fill_in 'Address', with: owner_info[:address]
-    fill_in 'City', with: owner_info[:city]
-    fill_in 'State', with: owner_info[:state]
-    fill_in 'Zip', with: owner_info[:zip]
-    fill_in 'Phone number', with: owner_info[:phone_number]
-    fill_in 'Description', with: owner_info[:description]
+    fill_in 'Address', with: @owner_info[:address]
+    fill_in 'City', with: @owner_info[:city]
+    fill_in 'State', with: @owner_info[:state]
+    fill_in 'Zip', with: @owner_info[:zip]
+    fill_in 'Phone number', with: @owner_info[:phone_number]
+    fill_in 'Description', with: @owner_info[:description]
   
     click_button 'Submit Application'
 
     expect(page).to have_content('You must complete the form in order to submit the application') #flash message
-    expect(current_path).to eq('/favorites/new')
+    expect(current_path).to eq('/applications/new')
   end
 end
 
