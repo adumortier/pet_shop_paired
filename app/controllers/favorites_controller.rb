@@ -17,4 +17,9 @@ class FavoritesController < ApplicationController
     # redirect_to "/pets/#{params[:pet_id]}"
     redirect_back fallback_location: '/pets'
   end
+
+  def destroy_all
+    favorites.remove_all
+    redirect_to '/favorites'
+  end
 end
