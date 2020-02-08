@@ -24,4 +24,10 @@ class Favorite
   def remove_all
     @pets.clear
   end
+
+  def update_favorites(ids)
+    ids.each do |id|
+      remove_pet_id(id)
+    end
+  end
 end
