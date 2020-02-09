@@ -19,7 +19,9 @@
       <%= link_to pet.name, "/pets/#{pet.id}"  %> 
       <% if pet.adopted? == "Adoptable" %>
           <%= link_to "Approve Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
-      <% end %>
+      <% else %>
+          <%= link_to "Revoke Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
+      <% end %> 
       </span>
   <% end %> 
   <%= submit_tag 'Submit' %>
