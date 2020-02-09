@@ -1,8 +1,9 @@
 <p> Here are all the applications for this pet </p>
 
-
-<% @applications.each do |application| %>
-    <%= link_to "#{application.name}", "/applications/#{application.id}" %>
+<% if @applications.length > 0 %>
+  <% @applications.each do |application| %>
+      <%= link_to "#{application.name}", "/applications/#{application.id}" %>
+  <% end %>
+<% else %>
+  <p>This pet has no applications at this time.</p>
 <% end %>
-
-
