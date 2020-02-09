@@ -49,7 +49,6 @@ RSpec.describe "As a visitor" do
       check "pet_ids_"
     end
 
-    save_and_open_page
     click_button "Submit"
 
     visit "/pets/#{@pet_1.id}"
