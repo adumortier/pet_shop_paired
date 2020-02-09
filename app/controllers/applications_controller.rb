@@ -3,17 +3,30 @@ class ApplicationsController < ApplicationController
   def new
   end
 
-  def create 
-    application = Application.new(favorites_params)
-    if (application.save) && (!params[:pet_ids].nil?)
-      flash[:notice] = 'Your Application has been submitted successfully!'
-      favorites.update_favorites(params[:pet_ids])
+  def show 
+    @application = Application.find(params[:id])
+  end
+
+  def create
+    if !params[:pet_ids].nil? 
+      params[:pet_ids].each do |pet_id|
+        pet = Pet.find(pet_id)
+        if pet.applications.create(favorites_params).valid?
+          flash[:notice] = 'Your Application has been submitted successfully!'
+          favorites.update_favorites(params[:pet_ids])
+        else
+          flash[:notice] = 'You must complete the form in order to submit the application'
+          redirect_to "/applications/new"
+          return
+        end
+      end
       redirect_to "/favorites"
-    else 
+    else
       flash[:notice] = 'You must complete the form in order to submit the application'
       redirect_to "/applications/new"
     end
   end
+
 
   private 
 
