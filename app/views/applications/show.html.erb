@@ -16,7 +16,10 @@
         <%= check_box_tag "pet_ids[]", pet.id %>   
       </span>
       <span id= <%= "pet_#{pet.id}" %> %>
-      <%= link_to pet.name, "/pets/#{pet.id}"  %> <%= link_to "Approve Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
+      <%= link_to pet.name, "/pets/#{pet.id}"  %> 
+      <% if pet.adopted? == "Adoptable" %>
+          <%= link_to "Approve Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
+      <% end %>
       </span>
   <% end %> 
   <%= submit_tag 'Submit' %>
