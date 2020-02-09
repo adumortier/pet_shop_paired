@@ -4,7 +4,9 @@
   <section id= 'shelter-<%= shelter.id %>'>
     <p>-----<%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %>-----</p>
     <%= link_to "Edit #{shelter.name}", "shelters/#{shelter.id}/edit" %> /
-    <%= link_to "Delete #{shelter.name}", "shelters/#{shelter.id}", method: :delete %>
+    <% if !shelter.approved_pet? %>
+      <%= link_to "Delete #{shelter.name}", "shelters/#{shelter.id}", method: :delete %>
+    <% end %>
     <p></p>
   </section>
 <% end %>
