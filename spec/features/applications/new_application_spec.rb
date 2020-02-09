@@ -78,7 +78,51 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
     expect(page).to have_content('You must complete the form in order to submit the application') #flash message
     expect(current_path).to eq('/applications/new')
   end
+
+  it "the favorites index page shows a list of pets that have at least one application" do
+
+    within("span#pet_#{@pet_2.id}") do
+      check "pet_ids_"
+    end
+
+    fill_in 'Name', with: @owner_info[:name]
+    fill_in 'Address', with: @owner_info[:address]
+    fill_in 'City', with: @owner_info[:city]
+    fill_in 'State', with: @owner_info[:state]
+    fill_in 'Zip', with: @owner_info[:zip]
+    fill_in 'Phone number', with: @owner_info[:phone_number]
+    fill_in 'Description', with: @owner_info[:description]
+
+    click_button 'Submit Application'
+
+    visit "/favorites"
+
+    within("div#pending_pets") do
+      expect(page).to have_content("#{@pet_1.name}") 
+      expect(page).to have_content("#{@pet_2.name}") 
+      click_link "#{@pet_1.name}"
+      expect(page).to have_current_path("/pets/#{@pet_1.id}")
+    end
+
+    visit "/favorites"
+
+    within("div#pending_pets") do
+      expect(page).to have_content("#{@pet_1.name}") 
+      expect(page).to have_content("#{@pet_2.name}") 
+      click_link "#{@pet_2.name}"
+      expect(page).to have_current_path("/pets/#{@pet_2.id}")
+    end
+
+  end
 end
+
+#   User Story 18, List of Pets that have applications on them
+
+# As a visitor
+# After one or more applications have been created
+# When I visit the favorites index page
+# I see a section on the page that has a list of all of the pets that have at least one application on them
+# Each pet's name is a link to their show page
 
 
 
