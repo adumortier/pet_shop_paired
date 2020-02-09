@@ -10,8 +10,18 @@
 
 <p> Pets: </p>
 
-<% @application.pets.each do |pet| %>
-    <span id= <%= "pet_#{pet.id}" %> %>
-    <%= link_to pet.name, "/pets/#{pet.id}"  %> <%= link_to "Approve Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
-    </span>
-<% end %> 
+<%= form_tag "/pets", method: :patch do %>
+  <% @application.pets.each do |pet| %>
+      <span id= "check_<%= pet.id %>">
+        <%= check_box_tag "pet_ids[]", pet.id %>   
+      </span>
+      <span id= <%= "pet_#{pet.id}" %> %>
+      <%= link_to pet.name, "/pets/#{pet.id}"  %> <%= link_to "Approve Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
+      </span>
+  <% end %> 
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+
+  
+
