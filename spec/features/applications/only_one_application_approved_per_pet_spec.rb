@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "When I visit a pet's show page", type: :feature do
-  
-  before :each do
+RSpec.describe "As a visitor" do 
+
+  before :each do 
     Shelter.destroy_all
     Pet.destroy_all
 
@@ -15,6 +15,7 @@ RSpec.describe "When I visit a pet's show page", type: :feature do
         sex: "F",
         description: "Nice dog"
         )
+
 
     @owner_info1 = {  :name => 'Alex', 
                     :address => '123 Maine Ave', 
@@ -34,24 +35,32 @@ RSpec.describe "When I visit a pet's show page", type: :feature do
 
     @application1 = @pet_1.applications.create(@owner_info1)
     @application2 = @pet_1.applications.create(@owner_info2)
-
   end
 
-  it "the pet show page has a link to the pet's application index page" do 
-
-    visit "/pets/#{@pet_1.id}"
-
-    click_link "All Applications"
-    expect(page).to have_current_path("/pets/#{@pet_1.id}/applications")
-
-    click_link "Alex"
-    expect(page).to have_current_path("/applications/#{@application1.id}")
+  it "once an application has been approved for one pet, other applications for the same pet can not be approved" do
     
-    visit "/pets/#{@pet_1.id}"
-    click_link "All Applications"
+    visit "/applications/#{@application1.id}"
 
-    click_link "Mike"
-    expect(page).to have_current_path("/applications/#{@application2.id}")    
+    within("span#pet_#{@pet_1.id}") do 
+      click_link "Approve Application"
+    end
+
+    visit "/applications/#{@application2.id}"
+
+    within("span#pet_#{@pet_1.id}") do 
+      expect(page).to_not have_link("Approve Application")
+    end
+
   end
+
+#   User Story 24, Pets can only have one approved application on them at any time
+
+# [ ] done
+
+# As a visitor
+# When a pet has more than one application made for them
+# And one application has already been approved for them
+# I can not approve any other applications for that pet but all other applications still remain on file (they can be seen on the pets application index page)
+# (This can be done by either taking away the option to approve the application, or having a flash message pop up saying that no more applications can be approved for this pet at this time)
 
 end
