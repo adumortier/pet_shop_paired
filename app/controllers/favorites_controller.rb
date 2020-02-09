@@ -1,5 +1,10 @@
 class FavoritesController < ApplicationController
 
+  def index
+    pets_id = ApplicationPet.pluck(:pet_id)
+    @pending_pets = Pet.where(id: pets_id)
+  end
+
   def update
     pet = Pet.find(params[:pet_id])
     pet_id_str = pet.id.to_s
