@@ -30,6 +30,6 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content(@penny.age)
     expect(page).to have_content(@penny.sex)
     expect(page).to have_content(@penny.description)
-    expect(page).to have_content("Adopt me!")
+    expect(page).to have_content("Adoptable")
   end
 end
