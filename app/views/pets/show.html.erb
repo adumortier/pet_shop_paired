@@ -11,5 +11,8 @@
 <% if favorites.pets.keys.include?(@pet.id.to_s) %>
   <%= link_to 'Remove from Favorites', "/favorites/#{@pet.id}", method: :delete %>
     <% else %>
-      <%= link_to "Add to Favorites", "/favorites/#{@pet.id}", method: :patch %>
-<% end %>
+      <%= link_to "Add to Favorites", "/favorites/#{@pet.id}", method: :patch %> /
+<% end %> 
+
+
+<%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>

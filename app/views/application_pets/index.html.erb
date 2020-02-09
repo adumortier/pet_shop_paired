@@ -1,0 +1,8 @@
+<p> Here are all the applications for this pet </p>
+
+
+<% @applications.each do |application| %>
+    <%= link_to "#{application.name}", "/applications/#{application.id}" %>
+<% end %>
+
+
