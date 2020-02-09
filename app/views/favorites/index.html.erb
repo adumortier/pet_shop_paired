@@ -1,4 +1,7 @@
-<h1>All favorites:</h1>
+
+<br><br>
+
+<h2>All favorites:</h2>
 
 <% if favorites.pets.length > 0 %>
 
@@ -6,8 +9,7 @@
   <hr>
 
   <%= link_to 'Adopt your favorite pets!', "/applications/new" %> <br>
-<hr>
-
+  <hr>
 
   <% favorites.selected_pets.each do |pet| %>
     <section id= "pets-<%= pet.id %>">
@@ -18,7 +20,19 @@
       </div>
     </section>
   <% end %>
+  
 
 <% else %>
   <p>You have no favorited pets at this time.</p>
 <% end %>
+ <hr>
+<p> The following pets have a pending application </p> 
+
+<div id="pending_pets">
+  <ul>
+  <% @pending_pets.each do |pet| %>
+  <li> <%= link_to pet.name, "/pets/#{pet.id}"  %> </li>
+  <% end %>
+  </ul>
+<div>
+<hr>
