@@ -4,7 +4,10 @@
 <p>Age: <%= @pet.age %></p>
 <p>Description: <%= @pet.description %></p>
 <p>Sex: <%= @pet.sex %></p>
-<p>Availability: <%= @pet.adoption_status %></p>
+<p>Availability: <%= @pet.adopted? %></p>
+<% if  @pet.adopted? == "Pending" %>
+  <p> On hold for <%= "#{@pet.applications[0].name}" %> </p>
+<% end %>
 <%= link_to "Update #{@pet.name}'s Profile", "/shelters/#{@pet.shelter.id}/pets/#{@pet.id}/edit" %> /
 <%= link_to "Delete #{@pet.name}", "/shelters/#{@pet.shelter.id}/pets/#{@pet.id}", method: :delete %> /
 

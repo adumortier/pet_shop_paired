@@ -28,16 +28,16 @@ Rails.application.routes.draw do
   get '/shelters/:id/pets/:id/edit', to: 'pets#edit'
   patch '/shelters/:shelter_id/pets/:pet_id', to: 'pets#update'
   delete '/shelters/:shelter_id/pets/:pet_id', to: 'pets#destroy'
-
+  
   patch '/favorites/:pet_id', to: 'favorites#update'
   # patch '/favorite/:id', to: 'favorite#update'
   get '/favorites', to: 'favorites#index'
   delete 'favorites/:pet_id', to: 'favorites#destroy'
   delete '/favorites', to: 'favorites#destroy_all'
-
+  
   get '/applications/new', to: 'applications#new'
   post '/applications', to: 'applications#create'
   get '/applications/:id', to: 'applications#show'
   get '/pets/:pet_id/applications', to: 'application_pets#index'
-
+  patch '/pets/:pet_id/:app_id', to: 'application_pets#update'
 end

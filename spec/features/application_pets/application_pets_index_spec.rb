@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'When a user clicks the submit button', type: :feature do
+RSpec.describe "When I visit a pet's show page", type: :feature do
   
   before :each do
     Shelter.destroy_all

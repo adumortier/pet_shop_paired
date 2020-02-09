@@ -11,5 +11,7 @@
 <p> Pets: </p>
 
 <% @application.pets.each do |pet| %>
-   <%= link_to pet.name, "/pets/#{pet.id}"  %> <br>
+    <span id= <%= "pet_#{pet.id}" %> %>
+    <%= link_to pet.name, "/pets/#{pet.id}"  %> <%= link_to "Approve Application", "/pets/#{pet.id}/#{@application.id}", method: :patch %> <br> 
+    </span>
 <% end %> 
