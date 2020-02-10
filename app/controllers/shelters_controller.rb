@@ -25,10 +25,17 @@ class SheltersController < ApplicationController
   def edit
     shelter
   end
-
+  
   def update
-    shelter.update(shelter_params)
-    redirect_to "/shelters/#{shelter.id}"
+    # shelter.update(shelter_params)
+    # redirect_to "/shelters/#{shelter.id}"
+    if shelter.update(shelter_params)
+      flash[:notice] = "You've successfully edited this shelter."
+      redirect_to "/shelters/#{shelter.id}"
+    else   
+      flash[:notice] = "All fields are required to update a shelter."
+      redirect_to "/shelters/#{shelter.id}/edit"
+    end
   end
 
   def destroy
