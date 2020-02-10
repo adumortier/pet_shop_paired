@@ -65,8 +65,7 @@ RSpec.describe "As a visitor" do
       expect(page).to_not have_content(@shelter_2.zip)
 
       visit "/pets"
-      # within('#pets') do
-      # end
+
       expect(page).to_not have_content(@pet_2.name)
   end
 end
