@@ -6,8 +6,9 @@
   <p><%= @shelter.state %></p>
   <p><%= @shelter.zip %></p>
   <%= link_to "Update #{@shelter.name}", "/shelters/#{@shelter.id}/edit" %> /
-  <%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %>
-
+  <% if !@shelter.approved_pet? %>
+    <%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %>
+  <% end %>
   <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new" %>
 
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor" do
   before :each do
-    # Shelter.destroy_all
+    Shelter.destroy_all
     @shelter_1 = Shelter.create(name: "Abby's Shelter", address: "123 Maine Street", city: "Denver", state: "CO", zip: "80210")
     @shelter_2 = Shelter.create(name: "Alex's Shelter", address: "345 Gworgia Street", city: "Denver", state: "CO", zip: "80223")
     @shelter_3 = Shelter.create(name: "Aaron's Shelter", address: "678 California Street", city: "Denver", state: "CO", zip: "80234")
