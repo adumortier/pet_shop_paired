@@ -32,4 +32,6 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content("All fields are required to submit a new shelter.")
   end
 
+  
+
 end
