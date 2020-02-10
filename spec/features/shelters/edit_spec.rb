@@ -18,4 +18,15 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content("Barbara's Palace")
     expect(page).to_not have_content("Abby's Shelter")
   end
+
+  it "has a flash message if a form is edited incompletely" do
+    fill_in :name, with: ""
+    fill_in :address, with: "456 Dublin St"
+    fill_in :city, with: "Phoenix"
+    fill_in :state, with: "AZ"
+    fill_in :zip, with: "60341"
+    click_button "Update #{@shelter_1.name}"
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
+    expect(page).to have_content("All fields are required to update a shelter.")
+  end
 end
