@@ -12,8 +12,14 @@ class SheltersController < ApplicationController
   end
 
   def create
-    Shelter.create(shelter_params)
-    redirect_to '/shelters'
+    # Shelter.create(shelter_params)
+    if Shelter.create(shelter_params).valid?
+      flash[:notice] = "You've successfully created a shelter."
+      redirect_to '/shelters'
+    else   
+      flash[:notice] = "All fields are required to submit a new shelter."
+      redirect_to '/shelters/new'
+    end
   end
 
   def edit
