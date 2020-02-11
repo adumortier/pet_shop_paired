@@ -56,6 +56,10 @@ RSpec.describe "As a visitor" do
     visit "/pets/#{@pet_1.id}"
     expect(page).to have_content("Adoptable")
     expect(page).to_not have_content("On hold for #{@owner_info1[:name]}")
+
+    visit "/shelters/#{@shelter_1.id}/pets/#{@pet_1.id}"
+    expect(page).to have_content("Adoptable")
+    expect(page).to_not have_content("On hold for #{@owner_info1[:name]}")
   end
 
 end
