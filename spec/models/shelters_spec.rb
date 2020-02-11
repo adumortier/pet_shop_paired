@@ -92,6 +92,7 @@ describe Shelter, type: :model do
         sex: "F",
         description: "Nice dog"
         )
+    
 
     pet_2 = shelter_2.pets.create!(
         image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
@@ -100,6 +101,14 @@ describe Shelter, type: :model do
         sex: "M",
         description: "Mean dog"
         )
+
+    pet_3 = shelter_1.pets.create!(
+        image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
+        name: "Mary",
+        age: 6,
+        sex: "F",
+        description: "Cool dog"
+    )
 
     owner_info1 = {  :name => 'Alex',
                     :address => '123 Maine Ave',
@@ -128,7 +137,9 @@ describe Shelter, type: :model do
     application3 = pet_1.applications.create(owner_info3)
     application4 = pet_2.applications.create(owner_info1)
     application5 = pet_2.applications.create(owner_info2)
-
-    expect(Pet.number_applications).to eq(5)
+    application6 = pet_3.applications.create(owner_info3)
+    
+    
+    expect(shelter_1.number_applications).to eq(4)
   end
 end
