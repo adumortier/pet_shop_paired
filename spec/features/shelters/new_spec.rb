@@ -26,12 +26,12 @@ RSpec.describe "As a visitor" do
     fill_in :address, with: "456 Dublin St"
     fill_in :city, with: "Phoenix"
     fill_in :state, with: "AZ"
-    fill_in :zip, with: "60341"
+    fill_in :zip, with: ""
     click_button "Submit"
     expect(current_path).to eq('/shelters/new')
-    expect(page).to have_content("All fields are required to submit a new shelter.")
+    expect(page).to have_content("The following fields are missing : name, zip")
   end
 
-  
+
 
 end

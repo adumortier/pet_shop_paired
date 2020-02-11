@@ -23,10 +23,10 @@ RSpec.describe "As a visitor" do
     fill_in :name, with: ""
     fill_in :address, with: "456 Dublin St"
     fill_in :city, with: "Phoenix"
-    fill_in :state, with: "AZ"
+    fill_in :state, with: ""
     fill_in :zip, with: "60341"
     click_button "Update #{@shelter_1.name}"
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
-    expect(page).to have_content("All fields are required to update a shelter.")
+    expect(page).to have_content("The following fields are missing : name, state")
   end
 end
