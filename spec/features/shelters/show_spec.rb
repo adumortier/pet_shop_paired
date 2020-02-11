@@ -76,6 +76,9 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content("Shelter Pet Count: 2")
     expect(page).to have_content("Average Shelter Review: 4")
     expect(page).to have_content("Number of Applications: 2")
+    visit "/shelters/#{@shelter_2.id}"
+    expect(page).to have_content("Number of Applications: 0")
+
   end
 end
 #
