@@ -12,17 +12,29 @@ class SheltersController < ApplicationController
   end
 
   def create
-    Shelter.create(shelter_params)
-    redirect_to '/shelters'
+    if Shelter.create(shelter_params).valid?
+      flash[:notice] = "You've successfully created a shelter."
+      redirect_to '/shelters'
+    else   
+      flash[:notice] = "The following fields are missing : #{Shelter.empty_params(shelter_params)}"
+      redirect_to '/shelters/new'
+    end
   end
 
   def edit
     shelter
   end
-
+  
   def update
-    shelter.update(shelter_params)
-    redirect_to "/shelters/#{shelter.id}"
+    # shelter.update(shelter_params)
+    # redirect_to "/shelters/#{shelter.id}"
+    if shelter.update(shelter_params)
+      flash[:notice] = "You've successfully edited this shelter."
+      redirect_to "/shelters/#{shelter.id}"
+    else   
+      flash[:notice] = "The following fields are missing : #{Shelter.empty_params(shelter_params)}"
+      redirect_to "/shelters/#{shelter.id}/edit"
+    end
   end
 
   def destroy
@@ -34,7 +46,7 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.permit(:name, :address, :city, :state, :zip)
+    params.permit(:name, :address, :city, :state, :zip).to_h
   end
 
   def shelter
