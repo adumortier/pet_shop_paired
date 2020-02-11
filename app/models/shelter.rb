@@ -13,8 +13,19 @@ class Shelter < ApplicationRecord
       if param[1] == ""
         acc << param[0]
       end
-      acc 
+      acc
     end.join(", ")
   end
 
+  def pet_count
+    pets.count
+  end
+
+  def average_review
+    reviews.average(:rating).to_f
+  end
+
+  # def number_applications
+  #   require "pry"; binding.pry
+  # end
 end
