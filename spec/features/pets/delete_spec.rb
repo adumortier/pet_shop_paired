@@ -40,17 +40,15 @@ RSpec.describe "As a visitor" do
     click_link "Add to Favorites"
 
     within("#nav") do
-      expect(page).to have_content("1") 
+      expect(page).to have_content("1")
     end
 
     click_link "Delete #{@penny.name}"
-
     within("#nav") do
       expect(page).to have_content("0")
     end
+
     visit "/favorites"
     expect(page).to_not have_content(@penny.name)
-
   end
-
 end
