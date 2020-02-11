@@ -44,12 +44,6 @@ describe Shelter, type: :model do
     expect(shelter_1.approved_pet?).to eq(true)
   end
 
-  it "can return a string that contains the empty fields" do
-    shelter_param = {"name"=>"", "address"=>"456 Dublin St", "city"=>"Phoenix", "state"=>"AZ", "zip"=>""}
-    output = Shelter.empty_params(shelter_param)
-    expect(output).to eq("name, zip")
-  end
-
   it "can calculate count of pets" do
 
     shelter_1 = Shelter.create!(name: "Abby's Shelter", address: "123 Maine Street", city: "Denver", state: "CO", zip: "80210")
@@ -92,7 +86,7 @@ describe Shelter, type: :model do
         sex: "F",
         description: "Nice dog"
         )
-    
+
 
     pet_2 = shelter_2.pets.create!(
         image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
@@ -138,8 +132,8 @@ describe Shelter, type: :model do
     application4 = pet_2.applications.create(owner_info1)
     application5 = pet_2.applications.create(owner_info2)
     application6 = pet_3.applications.create(owner_info3)
-    
-    
+
+
     expect(shelter_1.number_applications).to eq(4)
   end
 end

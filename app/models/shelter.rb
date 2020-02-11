@@ -8,15 +8,6 @@ class Shelter < ApplicationRecord
     pets.where(adopted?: "Pending").empty? == false
   end
 
-  def self.empty_params(shelter_param)
-  shelter_param.reduce([]) do |acc, param|
-      if param[1] == ""
-        acc << param[0]
-      end
-      acc
-    end.join(", ")
-  end
-
   def pet_count
     pets.count
   end

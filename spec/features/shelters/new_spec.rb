@@ -29,9 +29,6 @@ RSpec.describe "As a visitor" do
     fill_in :zip, with: ""
     click_button "Submit"
     expect(current_path).to eq('/shelters/new')
-    expect(page).to have_content("The following fields are missing : name, zip")
+    expect(page).to have_content("Name can't be blank and Zip can't be blank")
   end
-
-
-
 end
