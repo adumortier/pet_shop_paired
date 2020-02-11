@@ -39,4 +39,20 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content(3)
     expect(page).to have_content("Female")
   end
+
+  it "shows flash message if new pet form is filled out incorrectly" do
+
+    click_link "Create Pet"
+    expect(current_path).to eq("/shelters/#{@shelter.id}/pets/new")
+
+    fill_in :image, with: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg'
+    fill_in :name, with: "Peewee"
+    fill_in :description, with: "Lively pup"
+    fill_in :age, with: ""
+    fill_in :sex, with: ""
+
+    click_button "Create Pet"
+    expect(page).to have_content("Age can't be blank and Sex can't be blank")
+    expect(current_path).to eq("/shelters/#{@shelter.id}/pets/new")
+  end
 end
