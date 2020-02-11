@@ -12,5 +12,7 @@ class Pet < ApplicationRecord
         "I'm going home with someone!"
       end
   end
+
+ 
   
 end
