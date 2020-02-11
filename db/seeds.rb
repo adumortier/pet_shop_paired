@@ -25,7 +25,7 @@ pet_1 = shelter_1.pets.create(
   age: 2,
   sex: "F",
   description: "Very nice dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_2 = shelter_1.pets.create(
   image: 'https://www.vivamunehealth.com/wp-content/uploads/gsd21024x512-1024x512.jpg',
@@ -33,7 +33,7 @@ pet_2 = shelter_1.pets.create(
   age: 7,
   sex: "M",
   description: "Very funny dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 
 pet_3 = shelter_1.pets.create(
@@ -42,7 +42,7 @@ pet_3 = shelter_1.pets.create(
   age: 3,
   sex: "M",
   description: "Very outgoing dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 
 pet_4 = shelter_2.pets.create(
@@ -51,7 +51,7 @@ pet_4 = shelter_2.pets.create(
   age: 3,
   sex: "F",
   description: "Very shy dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_5 = shelter_2.pets.create(
   image: 'https://www.anythinggermanshepherd.com/wp-content/uploads/2019/10/How-Often-Do-German-Shepherd-Puppies-Poop.jpg',
@@ -59,7 +59,7 @@ pet_5 = shelter_2.pets.create(
   age: 1,
   sex: "F",
   description: "Very shy dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_6 = shelter_2.pets.create(
   image: 'https://vetstreet.brightspotcdn.com/dims4/default/daea1bb/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F98%2F5c%2Fa89605db40e5bfd72ff6d0e41ae2%2Fgerman-shepherd-ap-aozjlq-645.jpg',
@@ -67,7 +67,7 @@ pet_6 = shelter_2.pets.create(
   age: 3,
   sex: "M",
   description: "Very fun dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_7 = shelter_3.pets.create(
   image: 'https://www.aspcapetinsurance.com/media/2316/facts-about-german-shepherds.jpg',
@@ -75,7 +75,7 @@ pet_7 = shelter_3.pets.create(
   age: 4,
   sex: "M",
   description: "Very outgoing dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_8 = shelter_3.pets.create(
   image: 'https://thehappypuppysite.com/wp-content/uploads/2018/12/German-Shepherd-Dog-Breed-Information-Center-HP-long.jpg',
@@ -83,7 +83,7 @@ pet_8 = shelter_3.pets.create(
   age: 3,
   sex: "F",
   description: "Very shy dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_9 = shelter_3.pets.create(
   image: 'https://media1.popsugar-assets.com/files/thumbor/QYcQ17h-c7xh-evZHmaGSGI1l-U/0x159:2003x2162/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/07/875/n/24155406/9ffb00255d4b2e079b0b23.01360060_/i/Cute-Pictures-German-Shepherd-Puppies.jpg',
@@ -91,7 +91,7 @@ pet_9 = shelter_3.pets.create(
   age: 1,
   sex: "M",
   description: "Very confused dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_10 = shelter_4.pets.create(
   image: 'https://firehouseleander.com/wp-content/uploads/2018/04/german-shepherd-3404340_1920-min.jpg',
@@ -99,7 +99,7 @@ pet_10 = shelter_4.pets.create(
   age: 4,
   sex: "F",
   description: "Very lazy dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_11 = shelter_4.pets.create(
   image: 'https://static.wixstatic.com/media/55d44f_2c1994a4df674c569f690e6dcbcfcfdc~mv2.jpg/v1/fill/w_1088,h_960,al_c,q_85/55d44f_2c1994a4df674c569f690e6dcbcfcfdc~mv2.webp',
@@ -107,7 +107,7 @@ pet_11 = shelter_4.pets.create(
   age: 3,
   sex: "F",
   description: "Very fluffy dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_12 = shelter_4.pets.create(
   image: 'https://www.mwdtsa.org/wp-content/uploads/mwdtsa-kenneltalk-blog-gsd-photo-20180417.jpg',
@@ -115,7 +115,7 @@ pet_12 = shelter_4.pets.create(
   age: 2,
   sex: "M",
   description: "Very focused dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 
 pet_13 = shelter_5.pets.create(
@@ -124,7 +124,7 @@ pet_13 = shelter_5.pets.create(
   age: 1,
   sex: "M",
   description: "Very tired dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_14 = shelter_5.pets.create(
   image: 'https://www.petplace.com/static/41bf50fae23f24d5b7225070ad9260dd/842a8/german-shep.jpg',
@@ -132,7 +132,7 @@ pet_14 = shelter_5.pets.create(
   age: 3,
   sex: "F",
   description: "Very happy dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 pet_15 = shelter_5.pets.create(
   image: 'https://thehappypuppysite.com/wp-content/uploads/2019/02/German-Shepherd-Temperament-long.jpg',
@@ -140,7 +140,7 @@ pet_15 = shelter_5.pets.create(
   age: 2,
   sex: "F",
   description: "Very focused dog",
-  adopted?: "No"
+  adopted?: "Adoptable"
 )
 
 # shelters.each do |shelter|
