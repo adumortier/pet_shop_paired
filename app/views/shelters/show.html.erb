@@ -1,5 +1,7 @@
 <h1><%= @shelter.name %>:</h1>
-
+  <p>Shelter Pet Count: <%= @shelter.pet_count %></p> /
+  <p>Average Shelter Review: <%= @shelter.average_review.round(1) %></p> /
+  <p>Number of Applications: <%= @shelter.number_applications %></p> /
   <p>-----<%= link_to "Current Pets", "/shelters/#{@shelter.id}/pets" %>-----</p>
   <p><%= @shelter.address %></p>
   <p><%= @shelter.city %></p>
