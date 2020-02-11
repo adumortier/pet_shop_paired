@@ -1,4 +1,4 @@
-<h1><%= "#{@shelter.name}" %>'s Pets</h1>
+<h1><%= link_to @shelter.name, "/shelters/#{@shelter.id}" %>'s Pets</h1>
 <% @shelter.pets.each do |pet| %>
 <section id= 'pets-<%= pet.id %>'>
   <%= image_tag(pet.image) %>
