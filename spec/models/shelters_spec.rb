@@ -43,4 +43,10 @@ describe Shelter, type: :model do
     pet_1.update(adopted?: "Pending")
     expect(shelter_1.approved_pet?).to eq(true)
   end
+
+  it "can return a string that contains the empty fields" do
+    shelter_param = {"name"=>"", "address"=>"456 Dublin St", "city"=>"Phoenix", "state"=>"AZ", "zip"=>""}
+    output = Shelter.empty_params(shelter_param)
+    expect(output).to eq("name, zip")
+  end
 end
