@@ -38,10 +38,11 @@ this project to be. Type in 'git clone' and the paste the copied SSH key in to y
 
 You can now move in to the project and open it from your text editor.
 
-##Contributors:
-
--Alex Gallant
+## Contributors:
 -Alexis Dumortier
+
+-Alex Gallant 
+
 
 Links to contributor's Github repositories:
 
