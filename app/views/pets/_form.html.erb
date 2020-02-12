@@ -1,0 +1,13 @@
+<%= form_tag path, method: :method do %>
+  <%= label_tag :image %>
+  <%= text_field_tag :image, @pet ? @pet.image: "" %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @pet ? @pet.name: "" %>
+  <%= label_tag :description %>
+  <%= text_field_tag :description, @pet ? @pet.description: "" %>
+  <%= label_tag :age %>
+  <%= text_field_tag :age, @pet ? @pet.age: "" %>
+  <%= label_tag :sex %>
+  <%= text_field_tag :sex, @pet ? @pet.sex: "" %>
+  <%= submit_tag button_text %>
+<% end %>
