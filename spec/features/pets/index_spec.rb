@@ -64,7 +64,7 @@ RSpec.describe "As a visitor" do
       state: "CO",
       zip: "80210"
       )
-
+    
     @penny = Pet.create(
       image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg',
       name: "Penny",

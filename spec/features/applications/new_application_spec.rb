@@ -40,14 +40,15 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
                     :phone_number => '2077020720', 
                     :description => 'I will be a good pet owner, trust me.'}
     # check_box_tag where you select pet(s), select one pet for now (@pet_1) to make sure the other is left on /favorites
-    within("span#pet_#{@pet_1.id}") do
-      check "pet_ids_"
-    end
-
+    
   end
   
   it 'you can apply for a pet that will then remove that pet from the favorites page' do
     
+    within("span#pet_#{@pet_1.id}") do
+      check "pet_ids_"
+    end
+
     fill_in 'Name', with: @owner_info[:name]
     fill_in 'Address', with: @owner_info[:address]
     fill_in 'City', with: @owner_info[:city]
@@ -65,6 +66,11 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
   end
 
   it "redirects the user to the application form when fields are missing" do 
+
+    within("span#pet_#{@pet_1.id}") do
+      check "pet_ids_"
+    end
+
     fill_in 'Name', with: ""
     fill_in 'Address', with: @owner_info[:address]
     fill_in 'City', with: @owner_info[:city]
@@ -80,6 +86,10 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
   end
 
   it "the favorites index page shows a list of pets that have at least one application" do
+
+    within("span#pet_#{@pet_1.id}") do
+      check "pet_ids_"
+    end
 
     within("span#pet_#{@pet_2.id}") do
       check "pet_ids_"
@@ -114,6 +124,23 @@ RSpec.describe 'When a user clicks the submit button', type: :feature do
     end
 
   end
+
+  it "shows a flash message if not pets where selected for an application" do
+
+    fill_in 'Name', with: @owner_info[:name]
+    fill_in 'Address', with: @owner_info[:address]
+    fill_in 'City', with: @owner_info[:city]
+    fill_in 'State', with: @owner_info[:state]
+    fill_in 'Zip', with: @owner_info[:zip]
+    fill_in 'Phone number', with: @owner_info[:phone_number]
+    fill_in 'Description', with: @owner_info[:description]
+
+    click_button 'Submit Application'
+    expect(current_path).to eq("/applications/new")
+    expect(page).to have_content("You must complete the form in order to submit the application") 
+
+  end
+
 end
 
 #   User Story 18, List of Pets that have applications on them

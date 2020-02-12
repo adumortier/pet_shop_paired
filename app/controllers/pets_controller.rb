@@ -14,7 +14,10 @@ class PetsController < ApplicationController
     if pet.valid? && pet.age >= 0
       redirect_to "/shelters/#{shelter.id}/pets"
     else
-      (flash[:age_error] = "You must enter a positive value for the age") if (pet.age.to_i < 0)
+      if (pet.age.to_i < 0)
+        flash[:age_error] = "You must enter a positive value for the age"
+        Pet.destroy(pet.id)
+      end
       flash[:error] = "#{pet.errors.full_messages.to_sentence}"
       redirect_to "/shelters/#{shelter.id}/pets/new"
     end
@@ -31,10 +34,14 @@ class PetsController < ApplicationController
   def update
     shelter = Shelter.find(params[:shelter_id])
     pet = Pet.find(params[:pet_id])
-    if pet.update(pet_params) && (pet_params[:age].to_i >= 0)
+    if (pet_params[:age].to_i < 0)
+      flash[:age_error] = "You must enter a positive value for the age"
+      redirect_to "/shelters/#{shelter.id}/pets/#{pet.id}/edit"
+      return 
+    end
+    if pet.update(pet_params)
       redirect_to "/shelters/#{shelter.id}/pets/#{pet.id}"
     else
-      (flash[:age_error] = "You must enter a positive value for the age") if (pet_params[:age].to_i < 0)
       flash[:error] = "#{pet.errors.full_messages.to_sentence}"
       redirect_to "/shelters/#{shelter.id}/pets/#{pet.id}/edit"
     end

@@ -7,7 +7,7 @@
   <h2>Sex: <%= pet.sex %></h2>
   <h2>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %></h2>
   <%= link_to "Edit #{pet.name}", "/shelters/#{pet.shelter.id}/pets/#{pet.id}/edit" %> /
-  <% if  pet.adopted? != "Pending" %>
+  <% if  ((pet.adopted? != "Pending") && (pet.applications.empty? == true)) %>
     <%= link_to "Delete #{pet.name}", "/shelters/#{pet.shelter.id}/pets/#{pet.id}", method: :delete %>
   <% end %>
 </section>
