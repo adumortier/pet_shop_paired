@@ -5,13 +5,13 @@ class Pet < ApplicationRecord
   has_many :application_pets
   has_many :applications, through: :application_pets
 
-  def adoption_status
-      if adopted?
-        "Adopt me!"
-      else
-        "I'm going home with someone!"
-      end
-  end
+  # def adoption_status
+  #     if adopted?
+  #       "Adopt me!"
+  #     else
+  #       "I'm going home with someone!"
+  #     end
+  # end
 
 
 
