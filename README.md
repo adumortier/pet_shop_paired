@@ -40,32 +40,22 @@ Links to contributor's Github repositories:
 -https://github.com/agallant121?tab=repositories
 
 
-### Testing and Debugging
+### For Future Work
 * Write feature tests utilizing
 * Sad Path Testing
 * Write model tests with RSpec including validations, and class and instance methods
 
-### Web Applications
-* Explain how Cookies/Sessions are used to create and maintain application state
-* Describe and implement ReSTful routing
-* Identify use cases for, and implement non-ReSTful routes
-* Identify the different components of URLs(protocol, domain, path, query params)
 ## Requirements
 
 - must use Rails 5.1.x
 - must use PostgreSQL
 - all controller and model code must be tested via feature tests and model tests, respectively
-- must use good GitHub branching, team code reviews via GitHub comments, and use of a project planning tool
 
 ## Permitted
 
 - use FactoryBot to speed up your test development
 - use "rails generators" to speed up your app development
 
-## Not Permitted
-
-- do not use JavaScript for pagination or sorting controls
-
 ## Permission
 
-- if there is a specific gem you'd like to use in the project, please get permission from the creators first
+- All changes are subject to denial by creators.
