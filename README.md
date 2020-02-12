@@ -14,6 +14,9 @@ Each individual shelter will have statistics regarding their pets and their over
 Adopt Don't Shop is a great way to find your next furry friend and is an easy guide for you, the user, to find which shelter will work best with you to find your newest
 family member.
 
+## Many to Many and One to Many
+This project utilizes both one-to-many and many-to-many relationships, connecting multiple tables in our database for an easier user experience.
+
 
 ## Access
 Get started, hassle free by, by visiting  herokublahblah.com***
