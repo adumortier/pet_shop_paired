@@ -2,8 +2,8 @@
 
 <p><%= image_tag(@pet.image) %></p>
 <p>Age: <%= @pet.age %></p>
-<p>Description: <%= @pet.description %></p>
 <p>Sex: <%= @pet.sex %></p>
+<p>Description: <%= @pet.description %></p>
 <p>Availability: <%= @pet.adopted? %></p>
 <% if  @pet.adopted? == "Pending" %>
   <p> On hold for <%= "#{@pet.applications[0].name}" %> </p>

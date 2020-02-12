@@ -16,6 +16,7 @@ RSpec.describe "As a visitor" do
       name: "Penny",
       age: 2,
       sex: "F",
+      description: "cute"
       )
 
     @shelter.pets << @penny
