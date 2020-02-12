@@ -14,9 +14,10 @@ Each individual shelter will have statistics regarding their pets and their over
 Adopt Don't Shop is a great way to find your next furry friend and is an easy guide for you, the user, to find which shelter will work best with you to find your newest
 family member.
 
-## Many to Many and One to Many
+## Many-to-Many and One-to-Many
 This project utilizes both one-to-many and many-to-many relationships, connecting multiple tables in our database for an easier user experience.
 
+<img width="990" alt="Screen Shot 2020-02-12 at 3 32 20 PM" src="https://user-images.githubusercontent.com/52808022/74383799-242f9300-4dad-11ea-8df6-c274c5f81d6b.png">
 
 ## Access
 Get started, hassle free by, by visiting  herokublahblah.com***
@@ -43,21 +44,21 @@ Links to contributor's Github repositories:
 -https://github.com/agallant121?tab=repositories
 
 
-### For Future Work
-* Write feature tests utilizing
-* Sad Path Testing
-* Write model tests with RSpec including validations, and class and instance methods
+### For Our Work
+* Wrote feature tests to implement user functionality
+* We tested for issues that could have left unwanted data visible to the user
+* Wrote model tests to make sure our resources were able to save when correctly input
 
-## Requirements
+## Resources
 
-- must use Rails 5.1.x
-- must use PostgreSQL
-- all controller and model code must be tested via feature tests and model tests, respectively
+- Used Rails 5.1.7
+- Used PostgreSQL
+- All Model and Controller functionality was tested within our feature and model testing suites
 
 ## Permitted
 
-- use FactoryBot to speed up your test development
-- use "rails generators" to speed up your app development
+- To use FactoryBot to speed up your test development
+- To use "rails generators" to speed up your app development
 
 ## Permission
 
