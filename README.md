@@ -25,7 +25,7 @@ Get started, hassle free by, by visiting  herokublahblah.com***
 
 Click on the 'Clone or download' button and copy the SSH Key. 
 
-
+<img width="1101" alt="Screen Shot 2020-02-12 at 3 08 35 PM" src="https://user-images.githubusercontent.com/52808022/74381970-bafa5080-4da9-11ea-8ac4-2a98e09319ec.png">
 
 Then, go to the directory in your temrinal where you would like
 this project to be. Type in 'git clone' and the paste the copied SSH key in to your terminal and then hit enter.
