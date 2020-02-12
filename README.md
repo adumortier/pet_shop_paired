@@ -30,14 +30,14 @@ Click on the 'Clone or download' button and copy the SSH Key.
 Then, go to the directory in your temrinal where you would like
 this project to be. Type in 'git clone' and the paste the copied SSH key in to your terminal and then hit enter.
 
-IMAGE
+<img width="567" alt="Screen Shot 2020-02-12 at 3 11 19 PM" src="https://user-images.githubusercontent.com/52808022/74382293-61deec80-4daa-11ea-9b67-9e2d3ee0deb4.png">
 
 You can now cd in to the project and open it from your text editor.
 
 Links to contributor's Github repositories:
 
-https://github.com/adumortier?tab=repositories
-https://github.com/agallant121?tab=repositories
+-https://github.com/adumortier?tab=repositories  
+-https://github.com/agallant121?tab=repositories
 
 
 ### Testing and Debugging
