@@ -38,7 +38,7 @@ RSpec.describe 'As a visitor' do
     expect(page).to have_content('Review successfully updated!')
   end
 
-  it 'shows flash message for submission failure' do
+  it 'shows a flash message for submission failure' do
     visit "/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit"
 
     fill_in :title, with: 'Good shelter'
@@ -51,4 +51,5 @@ RSpec.describe 'As a visitor' do
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit")
     expect(page).to have_content('Please enter all required information')
   end
+
 end
