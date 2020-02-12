@@ -28,7 +28,7 @@ RSpec.describe 'As a visitor' do
     visit "/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit"
 
     fill_in :title, with: 'Good shelter'
-    fill_in :rating, with: '5'
+    select 5, :from => :rating
     fill_in :content, with: 'teeee'
     fill_in :image, with: 'https://www.rd.com/wp-content/uploads/2017/11/05-amazon-9-Powerful-Ways-to-Give-to-Charity-Without-Breaking-the-Bank_527124532-Pongsatorn-Singnoy-800x450.jpg'
 
@@ -42,7 +42,7 @@ RSpec.describe 'As a visitor' do
     visit "/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit"
 
     fill_in :title, with: 'Good shelter'
-    fill_in :rating, with: '5'
+    select 5, :from => :rating
     fill_in :content, with: ''
     fill_in :image, with: 'https://www.rd.com/wp-content/uploads/2017/11/05-amazon-9-Powerful-Ways-to-Give-to-Charity-Without-Breaking-the-Bank_527124532-Pongsatorn-Singnoy-800x450.jpg'
 

@@ -2,7 +2,7 @@
   <%= label_tag :title %>
   <%= text_field_tag :title %>
   <%= label_tag :rating %>
-  <%= text_field_tag :rating %>
+  <%= select_tag :rating, options_for_select((1..5).to_a) %><br>
   <%= label_tag :content %>
   <%= text_field_tag :content %>
   <%= label_tag :image %>
