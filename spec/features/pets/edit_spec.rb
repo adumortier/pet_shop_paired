@@ -15,6 +15,7 @@ RSpec.describe "As a visitor" do
       name: "Penny",
       age: 2,
       sex: "F",
+      description: "cute"
       )
 
     @shelter.pets << @penny
@@ -41,12 +42,12 @@ RSpec.describe "As a visitor" do
 
     fill_in :image, with: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234558/Chinook-On-White-03.jpg'
     fill_in :name, with: "Peewee"
-    fill_in :description, with: "Lively pup"
+    fill_in :description, with: ""
     fill_in :age, with: ""
-    fill_in :sex, with: ""
+    select 'F', :from => :sex
 
     click_button "Update #{@penny.name}"
-    expect(page).to have_content("Age can't be blank and Sex can't be blank")
+    expect(page).to have_content("Age can't be blank and Description can't be blank")
     expect(current_path).to eq("/shelters/#{@shelter.id}/pets/#{@penny.id}/edit")
   end
 end
