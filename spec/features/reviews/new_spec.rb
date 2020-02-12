@@ -23,7 +23,7 @@ RSpec.describe 'As a visitor' do
     expect(page).to have_content('Image')
 
     fill_in :title, with: 'Good shelter'
-    fill_in :rating, with: '5'
+    select 5, :from => :rating
     fill_in :content, with: 'It was a great shelter'
     fill_in :image, with: 'https://www.rd.com/wp-content/uploads/2017/11/05-amazon-9-Powerful-Ways-to-Give-to-Charity-Without-Breaking-the-Bank_527124532-Pongsatorn-Singnoy-800x450.jpg'
 
@@ -38,7 +38,7 @@ RSpec.describe 'As a visitor' do
     visit "/shelters/#{@shelter_2.id}/reviews/new"
 
     fill_in :title, with: 'Good shelter'
-    fill_in :rating, with: '5'
+    select 5, :from => :rating
 
     click_button 'Submit'
 
@@ -46,7 +46,7 @@ RSpec.describe 'As a visitor' do
     expect(page).to have_content("Failed to fill out require information.")
 
     fill_in :title, with: 'Bad shelter'
-    fill_in :rating, with: '2'
+    select 2, :from => :rating
     fill_in :content, with: 'It was a bad shelter'
     fill_in :image, with: 'https://www.rd.com/wp-content/uploads/2017/11/05-amazon-9-Powerful-Ways-to-Give-to-Charity-Without-Breaking-the-Bank_527124532-Pongsatorn-Singnoy-800x450.jpg'
 
