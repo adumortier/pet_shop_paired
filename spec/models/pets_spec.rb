@@ -22,7 +22,7 @@ describe Pet, type: :model do
         sex: "F",
         )
     it "can say if pet is adopted when created" do
-        expect(pet.adoption_status).to eq("Adopt me!")
+        expect(pet.adopted?).to eq("Adoptable")
     end # not sure how to / if I can check the sad path yet?
   end
 end
