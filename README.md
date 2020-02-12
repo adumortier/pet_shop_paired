@@ -21,7 +21,7 @@ Get started, hassle free by, by visiting  herokublahblah.com***
 -To clone this project, please visit https://github.com/adumortier/pet_shop_paired
 -Once you are on the webpage, look for the green 'Clone or download' button on the right side of the web page.
 
-IMAGE
+<img width="1336" alt="Screen Shot 2020-02-12 at 2 33 21 PM" src="https://user-images.githubusercontent.com/52808022/74381624-0f510080-4da9-11ea-8683-edceea13feff.png">
 
 Click on the 'Clone or download' button and copy the SSH Key. 
 
