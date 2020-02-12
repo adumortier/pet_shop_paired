@@ -1,0 +1,11 @@
+<%= form_tag path, method: :method do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, @review ? @review.title: ""  %>
+  <%= label_tag :rating %>
+  <%= select_tag :rating, options_for_select((1..5).to_a) %><br>
+  <%= label_tag :content %>
+  <%= text_field_tag :content, @review ? @review.content: "" %>
+  <%= label_tag :image %>
+  <%= text_field_tag :image, @review ? @review.image: "" %>
+  <%= submit_tag button_text %>
+<% end %>
