@@ -1,9 +1,9 @@
- 
+
  <p> Check the pet(s) you'd like to adopt below </p>
  <%= form_tag "/applications", method: :post do %>
     <% favorites.selected_pets.each do |pet| %>
     <span id= "pet_<%= pet.id %>">
-      <%= check_box_tag "pet_ids[]", pet.id %> <%= pet.name %> <br>   
+      <%= check_box_tag "pet_ids[]", pet.id %> <%= link_to pet.name, "/pets/#{pet.id}" %> <br>
     </span>
     <% end %> <br> <br>
     <p> Please enter your information below </p>
@@ -21,6 +21,6 @@
     <%= text_field_tag :phone_number %> <br>
     <%= label_tag :description %>
     <%= text_field_tag :description %> <br> <br>
-  
+
     <%= submit_tag 'Submit Application' %>
 <% end %>
