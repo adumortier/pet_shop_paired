@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Review.destroy_all
+Review.destroy_all
 Shelter.destroy_all
-# Application.destroy_all
+Application.destroy_all
 Pet.destroy_all
-# PetApplication.destroy_all
+ApplicationPet.destroy_all
 
 
 shelter_1 = Shelter.create(name: "Abby's Shelter", address: "123 Maine Street", city: "Denver", state: "CO", zip: "80210")
@@ -142,13 +142,3 @@ pet_15 = shelter_5.pets.create(
   description: "Very focused dog",
   adopted?: "Adoptable"
 )
-
-# shelters.each do |shelter|
-#   pets = FactoryBot.create_list(:random_pet, 15, shelter: shelter)
-#   FactoryBot.create_list(:random_review, 10, shelter: shelter)
-#   apps = FactoryBot.create_list(:random_application, 2)
-#   apps.each do |app|
-#     app.pets << pets[rand(0..7)]
-#     app.pets << pets[rand(8..14)]
-#   end
-# end

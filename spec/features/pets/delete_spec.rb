@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor" do
   before :each do
+    Pet.destroy_all
     @shelter = Shelter.create(
       name: "The Pound",
       address: "123 Main Street",
@@ -43,7 +44,9 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content("1")
     end
 
+    expect(current_path).to eq('/pets')
     click_link "Delete #{@penny.name}"
+    
     within("#nav") do
       expect(page).to have_content("0")
     end
