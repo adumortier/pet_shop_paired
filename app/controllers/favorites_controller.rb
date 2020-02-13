@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
     session[:fav_pets][pet_id_str] ||= {}
 
     flash[:notice] = "You added #{pet.name} to your favorites."
-    redirect_to '/pets'
+    redirect_to "/pets/#{pet.id}"
   end
 
   def destroy
