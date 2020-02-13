@@ -133,7 +133,6 @@ describe Shelter, type: :model do
     application5 = pet_2.applications.create(owner_info2)
     application6 = pet_3.applications.create(owner_info3)
 
-
     expect(shelter_1.number_applications).to eq(4)
   end
 end

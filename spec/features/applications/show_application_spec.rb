@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor" do
 
-  before :each do 
+  before :each do
 
     Shelter.destroy_all
     Pet.destroy_all
@@ -15,19 +15,19 @@ RSpec.describe "As a visitor" do
         sex: "F",
         description: "Nice dog"
         )
-    @owner_info = {  :name => 'Alex', 
-                    :address => '123 Maine Ave', 
-                    :city => 'Paris', 
-                    :state => 'CO', 
-                    :zip => '80210', 
-                    :phone_number => '2077020720', 
+    @owner_info = {  :name => 'Alex',
+                    :address => '123 Maine Ave',
+                    :city => 'Paris',
+                    :state => 'CO',
+                    :zip => '80210',
+                    :phone_number => '2077020720',
                     :description => 'I will be a good pet owner, trust me.'}
     @application = @pet_1.applications.create(@owner_info)
 
   end
 
-  it "the application show page displays the application information" do 
-    
+  it "the application show page displays the application information" do
+
     visit "/applications/#{@application.id}"
     expect(page).to have_content("Name: #{@application.name}")
     expect(page).to have_content("Address: #{@application.address}")
@@ -39,5 +39,4 @@ RSpec.describe "As a visitor" do
     click_link "#{@pet_1.name}"
     expect(page).to have_current_path("/pets/#{@pet_1.id}")
   end
-
 end

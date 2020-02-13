@@ -51,5 +51,4 @@ RSpec.describe 'As a visitor' do
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit")
     expect(page).to have_content('Please enter all required information')
   end
-
 end
