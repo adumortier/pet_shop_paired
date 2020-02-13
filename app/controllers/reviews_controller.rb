@@ -7,17 +7,17 @@ class ReviewsController < ApplicationController
   def create
     score = review_params[:rating]
     shelter = Shelter.find(params[:shelter_id])
-    new_review = shelter.reviews.new(review_params)#######changed from create to new
-    if new_review.save && Review.valid_rating?(score)  
+    new_review = shelter.reviews.new(review_params)
+    if new_review.save && Review.valid_rating?(score)
       flash[:happy] = 'Review successfully submitted!'
       redirect_to "/shelters/#{shelter.id}"
     else
-      if !Review.valid_rating?(score) 
+      if !Review.valid_rating?(score)
           flash[:rating] = 'Please enter a rating between 1 and 5'
           Review.destroy(new_review.id)
           redirect_to "/shelters/#{shelter.id}/reviews/new" and return
       end
-      flash[:sad] = 'Failed to fill out require information.'
+      flash[:sad] = 'You need to fill in a title, rating, and content in order to submit a shelter review.'
       redirect_to "/shelters/#{shelter.id}/reviews/new"
     end
   end
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
     review = Review.find(params[:review_id])
     shelter = Shelter.find(params[:shelter_id])
     review = shelter.reviews.find(params[:review_id])
-    if !Review.valid_rating?(review_params[:rating]) 
+    if !Review.valid_rating?(review_params[:rating])
         flash[:rating] = 'Please enter a rating between 1 and 5'
         redirect_to "/shelters/#{params[:shelter_id]}/reviews/#{review.id}/edit"
         return
@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
       flash[:happy] = 'Review successfully updated!'
       redirect_to "/shelters/#{shelter.id}"
     else
-      flash[:sad] = 'Please enter all required information'
+      flash[:sad] = 'You need to fill in a title, rating, and content in order to edit a shelter review.'
       redirect_to "/shelters/#{shelter.id}/reviews/#{review.id}/edit"
     end
   end
