@@ -15,18 +15,18 @@
     <section id= "pets-<%= pet.id %>">
       <div>
         <%= image_tag(pet.image) %>
-        <%= link_to pet.name, "/pets/#{pet.id}"  %> / 
+        <%= link_to pet.name, "/pets/#{pet.id}"  %> /
         <%= link_to 'Remove from Favorites', "/favorites/#{pet.id}", method: :delete %>
       </div>
     </section>
   <% end %>
-  
+
 
 <% else %>
   <p>You have no favorited pets at this time.</p>
 <% end %>
  <hr>
-<p> The following pets have a pending application </p> 
+<p> The following pets have a pending application: </p> 
 
 <div id="pending_pets">
   <ul>
