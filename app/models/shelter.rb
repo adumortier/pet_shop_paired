@@ -17,7 +17,6 @@ class Shelter < ApplicationRecord
   end
 
   def number_applications
-    pets.joins(:applications).select('applications.*').distinct.count
-    # ApplicationPet.joins('JOIN pets on application_pets.pet_id = pets.id').joins('JOIN shelters on shelters.id = pets.shelter_id').where("shelters.id = #{id}").count
+      pets.joins(:applications).select('applications.*').distinct.count
   end
 end
