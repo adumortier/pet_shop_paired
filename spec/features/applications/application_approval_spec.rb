@@ -43,8 +43,8 @@ RSpec.describe 'When I visit an application show page', type: :feature do
 
     expect(page).to have_content(@pet_1.name)
     expect(page).to have_content(@pet_2.name)
-
-    within("span#pet_#{@pet_1.id}") do
+    
+    within("span#pet_#{@pet_1.id}") do 
       click_link "Approve Application"
     end
 

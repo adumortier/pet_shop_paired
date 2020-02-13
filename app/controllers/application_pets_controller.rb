@@ -8,20 +8,38 @@ class ApplicationPetsController < ApplicationController
   def update
     pet = Pet.find(params[:pet_id])
     if pet.adopted? == "Adoptable"
-      pet.update(adopted?: "Pending")
+      pet.update(adopted?: "Pending", adopter: params[:app_id].to_i)
+      flash[:approved] = 'Application Approved.'
       redirect_to "/pets/#{pet.id}"
-    elsif
-      pet.update(adopted?: "Adoptable")
-      redirect_to "/applications/#{params[:app_id]}"
-    end
+    else
+      pet.update(adopted?: "Adoptable", adopter: nil)
+      redirect_to "/applications/#{params[:app_id]}" 
+    end  
   end
 
   def batch_update
     pet_ids = params[:pet_ids]
     pet_ids.each do |id|
       pet = Pet.find(id)
-      pet.update(adopted?: "Pending")
+      if pet.adopted? == "Adoptable"
+        pet.update(adopted?: "Pending", adopter: params[:app_id].to_i)
+        flash[:approved] = "#{pet.name}'s application was approved."
+      else
+        pet.update(adopted?: "Adoptable", adopter: nil)
+      end  
     end
     redirect_to "/pets"
   end
 end
+
+
+
+#     pet_ids = params[:pet_ids]
+#     pet_ids.each do |id|
+#       pet = Pet.find(id)
+#       pet.update(adopted?: "Pending")
+#     end
+#     redirect_to "/pets"
+#   end
+
+# end
