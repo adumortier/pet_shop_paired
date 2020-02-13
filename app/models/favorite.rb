@@ -1,8 +1,8 @@
 class Favorite
   attr_reader :pets
 
-  def initialize(pets = {})
-    @pets = pets
+  def initialize(pets)
+    @pets = pets || Hash.new(0)
   end
 
   def add_pet(id)
