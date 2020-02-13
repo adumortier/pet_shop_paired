@@ -49,7 +49,7 @@ RSpec.describe 'As a visitor' do
     click_button 'Submit'
 
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit")
-    expect(page).to have_content('Please enter all required information')
+    expect(page).to have_content('You need to fill in a title, rating, and content in order to edit a shelter review.')
   end
 
 end
