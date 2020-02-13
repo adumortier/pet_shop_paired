@@ -11,7 +11,3 @@
   <%= text_field_tag :image, @pet.image %> <br> <br>
   <%= submit_tag "Update #{@pet.name}" %>
 <% end %>
-
-<%# <%=  render partial:"form", locals: { path: "/shelters/#{@pet.shelter.id}/pets/#{@pet.id}",
-                                      method: 'patch',
-                                      button_text: "Update #{@pet.name}"} %> %>
