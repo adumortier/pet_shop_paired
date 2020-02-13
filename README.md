@@ -19,10 +19,10 @@ This project utilizes both one-to-many and many-to-many relationships, connectin
 <img width="990" alt="Screen Shot 2020-02-12 at 3 32 20 PM" src="https://user-images.githubusercontent.com/52808022/74383799-242f9300-4dad-11ea-8df6-c274c5f81d6b.png">
 
 ## Access
-Start looking for pets, hassle-free, by visiting  herokublahblah.com***
+Start looking for pets, hassle-free, by visiting https://pet-shop-paired.herokuapp.com/shelters
 
 ## Work on this project yourself!
--To get started, clone this project, please visit https://pet-shop-paired.herokuapp.com/shelters
+-To get started, clone this project, please visit https://github.com/adumortier/pet_shop_paired
 -Once you have clicked the link, look for the green 'Clone or download' button on the right side of the web page.
 
 <img width="1336" alt="Screen Shot 2020-02-12 at 2 33 21 PM" src="https://user-images.githubusercontent.com/52808022/74381624-0f510080-4da9-11ea-8683-edceea13feff.png">
