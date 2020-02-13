@@ -22,7 +22,7 @@ This project utilizes both one-to-many and many-to-many relationships, connectin
 Start looking for pets, hassle-free, by visiting  herokublahblah.com***
 
 ## Work on this project yourself!
--To get started, clone this project, please visit https://github.com/adumortier/pet_shop_paired
+-To get started, clone this project, please visit https://pet-shop-paired.herokuapp.com/shelters
 -Once you have clicked the link, look for the green 'Clone or download' button on the right side of the web page.
 
 <img width="1336" alt="Screen Shot 2020-02-12 at 2 33 21 PM" src="https://user-images.githubusercontent.com/52808022/74381624-0f510080-4da9-11ea-8683-edceea13feff.png">
