@@ -43,7 +43,7 @@ RSpec.describe 'As a visitor' do
     click_button 'Submit'
 
     expect(current_path).to eq("/shelters/#{@shelter_2.id}/reviews/new")
-    expect(page).to have_content("Failed to fill out require information.")
+    expect(page).to have_content("You need to fill in a title, rating, and content in order to submit a shelter review.")
 
     fill_in :title, with: 'Bad shelter'
     select 2, :from => :rating
