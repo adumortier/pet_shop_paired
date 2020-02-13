@@ -40,6 +40,9 @@ RSpec.describe 'When I visit an application show page', type: :feature do
   it "The application can be approved from the show page" do
     
     visit "/applications/#{@application1.id}"
+
+    expect(page).to have_content(@pet_1.name)
+    expect(page).to have_content(@pet_2.name)
     
     within("span#pet_#{@pet_1.id}") do 
       click_link "Approve Application"
