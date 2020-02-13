@@ -1,6 +1,6 @@
 class ApplicationPetsController < ApplicationController
 
-  def index 
+  def index
     pet = Pet.find(params[:pet_id])
     @applications = pet.applications
   end
@@ -17,7 +17,7 @@ class ApplicationPetsController < ApplicationController
     end  
   end
 
-  def batch_update 
+  def batch_update
     pet_ids = params[:pet_ids]
     pet_ids.each do |id|
       pet = Pet.find(id)
@@ -30,5 +30,4 @@ class ApplicationPetsController < ApplicationController
     end
     redirect_to "/pets"
   end
-
 end
