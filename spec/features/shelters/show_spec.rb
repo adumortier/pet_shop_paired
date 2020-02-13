@@ -78,15 +78,5 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content("Number of Applications: 2")
     visit "/shelters/#{@shelter_2.id}"
     expect(page).to have_content("Number of Applications: 0")
-
   end
 end
-#
-# User Story 30, Shelter Statistics
-#
-# As a visitor
-# When I visit a shelter's show page
-# I see statistics for that shelter, including:
-# - count of pets that are at that shelter
-# - average shelter review rating
-# - number of applications on file for that shelter

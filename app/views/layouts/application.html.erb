@@ -4,9 +4,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>AdoptDontShop</title>
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
-
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -16,7 +13,6 @@
   <body>
 
     <div class="navbar" id=nav>
-      <!-- <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> -->
       <a <%= link_to "All Pets", "/pets" %></a>
       <a <%= link_to "All Shelters", "/shelters" %></a>
       <%= link_to "Favorites", "/favorites" %> <%= favorites.favorite_count %>

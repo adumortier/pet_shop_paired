@@ -13,8 +13,8 @@ class ApplicationPetsController < ApplicationController
       redirect_to "/pets/#{pet.id}"
     else
       pet.update(adopted?: "Adoptable", adopter: nil)
-      redirect_to "/applications/#{params[:app_id]}" 
-    end  
+      redirect_to "/applications/#{params[:app_id]}"
+    end
   end
 
   def batch_update
@@ -26,7 +26,7 @@ class ApplicationPetsController < ApplicationController
         flash[:approved] = "#{pet.name}'s application was approved."
       else
         pet.update(adopted?: "Adoptable", adopter: nil)
-      end  
+      end
     end
     redirect_to "/pets"
   end

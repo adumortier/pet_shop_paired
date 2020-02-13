@@ -66,5 +66,4 @@ RSpec.describe "As a visitor" do
     visit "/shelters/#{@shelter.id}/pets"
     expect(page).to_not have_content("Cracky")
   end
-  
 end

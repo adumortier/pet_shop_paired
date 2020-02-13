@@ -72,7 +72,6 @@ RSpec.describe "As a visitor" do
       expect(page).to_not have_content(@pet_2.name)
   end
 
-
   it "deletes the reviews for the shelter when the shelter is deleted" do
     reviews_count = Review.count
     expect(reviews_count).to eq(2)
