@@ -32,15 +32,3 @@ class ApplicationPetsController < ApplicationController
   end
 
 end
-
-
-
-#     pet_ids = params[:pet_ids]
-#     pet_ids.each do |id|
-#       pet = Pet.find(id)
-#       pet.update(adopted?: "Pending")
-#     end
-#     redirect_to "/pets"
-#   end
-
-# end
