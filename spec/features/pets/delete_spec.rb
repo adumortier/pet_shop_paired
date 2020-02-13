@@ -45,7 +45,7 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content("1")
     end
 
-    expect(current_path).to eq('/pets')
+    expect(current_path).to eq("/pets/#{@penny.id}")
     click_link "Delete #{@penny.name}"
     
     within("#nav") do
